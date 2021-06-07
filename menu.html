@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <style>
+        *
+        {
+            margin: 0%;
+            padding: 0%;;
+        }
+        body
+        {
+            overflow: hidden;
+        }
+        #main
+        {
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+        #navbar
+        {
+            width: 90%;
+            height: 10%;
+            margin: 1% auto;
+            border: 1px solid black;
+        }
+        #display
+        {
+            width: 90%;
+            height: 80%;
+            margin: 1% auto;
+            border: 1px solid black;
+
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            grid-template-rows: 33% 33% 33%;
+        }
+        img
+        {
+            width: 90%;
+            height: 20%;
+        }
+    </style>
+
+
+
+
+
+</head>
+<body>
+    <div id="main">
+
+        <div id="navbar">
+            <button onclick="cart()">Cart</button>
+            <button onclick="order()">submit order</button>
+        </div>
+
+        <div id="display">
+
+        </div>
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+<script>
+
+    
+
+var data = [
+
+    {
+        image:"", 
+        price:"200",
+        description:"chiken kasa", 
+        time_to_prepare:30
+    },
+     {
+        image:"", 
+        price:"200",
+        description:"chiken kasa", 
+        time_to_prepare:30
+    },
+     {
+        image:"", 
+        price:"200",
+        description:"chiken kasa", 
+        time_to_prepare:30
+    },
+     {
+        image:"", 
+        price:"200",
+        description:"chiken kasa", 
+        time_to_prepare:30
+    },
+     {
+        image:"", 
+        price:"200",
+        description:"chiken kasa", 
+        time_to_prepare:30
+    },
+     {
+        image:"", 
+        price:"200",
+        description:"chiken kasa", 
+        time_to_prepare:30
+    },
+     {
+        image:"", 
+        price:"200",
+        description:"chiken kasa", 
+        time_to_prepare:30
+    },
+     {
+        image:"", 
+        price:"200",
+        description:"chiken kasa", 
+        time_to_prepare:30
+    }, {
+        image:"", 
+        price:"200",
+        description:"chiken kasa", 
+        time_to_prepare:30
+    }
+
+]
+
+if (localStorage.getItem("dish") == null)
+{
+    localStorage.setItem("dish",JSON.stringify(data))
+}
+let abc=JSON.parse(localStorage.getItem("dish"));
+console.log(abc.length);
+let x=document.getElementById("display");
+
+    for(let i=0;i<abc.length;i++)
+    {
+
+    let y=document.createElement("div");
+
+    let img=document.createElement("img");
+    img.src=abc[i].image;
+
+    let price=document.createElement("p");
+    price.innerHTML=`Price : ${abc[i].price}`;
+    
+
+    let des=document.createElement("p");
+    des.innerHTML=`Description : ${abc[i].description}`;
+
+    let tim1=document.createElement("p");
+    tim1.innerHTML=`Time to prepare :${abc[i].time_to_prepare} mins`;
+
+    let btn1=document.createElement("button");
+    btn1.innerHTML="add to cart";
+
+
+    y.append(img,price,des,tim1,btn1);
+    x.append(y);
+
+
+    btn1.addEventListener("click", add2cart);
+
+    function add2cart()
+    {   let arr1;
+        if (localStorage.getItem("cart") == null)
+        {
+            arr1=[];
+            //localStorage.setItem("cart",JSON.stringify(abc[i]))
+        }else 
+        {
+            arr1=JSON.parse(localStorage.getItem("cart"));
+        }
+        arr1.push(abc[i]);
+        localStorage.setItem("cart",JSON.stringify(arr1));
+
+    }
+
+
+    }
+
+
+   
+    
+function cart()
+{
+    window.location.href="\cart.html";
+}
+ 
+function order()
+{
+
+ alert("Your order is accepted");
+
+
+
+    setInterval( alert("Your order is being cooked,"), 3000);
+
+
+    setInterval( alert("Your order is ready"), 8000);
+
+    setInterval( alert("Order out for delivery"), 10000);
+
+
+    clearInterval( alert("Order delivered"), 12000);
+
+
+}
+
+</script>

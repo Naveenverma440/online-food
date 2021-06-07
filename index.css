@@ -1,0 +1,48 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+#main{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: aquamarine;
+
+    display: flex;
+    flex-flow: column;
+}
+
+#navbar{
+    width: 90%;
+    height: 10%;
+    border: 1px solid black;
+    margin: auto;
+
+    display: flex;
+    flex-flow: row-reverse;
+}
+
+#bottom{
+    width: 90%;
+    height: 90%;
+    border: 1px solid black;
+    margin: auto;
+    
+}
+
+ button{
+    width: 20%;
+    background-color: cadetblue;
+}
+
+#right{
+    width: 50%;
+    display: flex;
+    flex-flow: row-reverse;
+}
+#left{
+    width: 50%;
+    display: flex;
+    flex-flow:row;
+    
+}
